@@ -1,121 +1,51 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { AuthProvider } from './context/AuthProvider'
+import { AuthForm } from './components/AuthForm'
+import { Palette, Sparkles, Compass, Heart } from 'lucide-react'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+    // Wrap entire application with AuthProvider to supply user & authentication state
+    <AuthProvider>
+      <div className="min-h-screen bg-stone-50 text-stone-900 py-8 px-4 flex flex-col items-center" dir="rtl">
+        {/* App Header */}
+        <header className="max-w-xl w-full text-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-4 py-1.5 rounded-full text-xs font-semibold mb-3">
+            <Sparkles className="w-4 h-4 text-amber-600" />
+            <span>CraftMaster • לומדים ויוצרים ביחד</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-amber-950 tracking-tight">
+            CraftMaster 🎨
+          </h1>
+          <p className="mt-2 text-sm sm:text-base text-stone-600">
+            פלטפורמה לשיתוף ולמידת כישורי יצירה, צבירת נקודות והשראה
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        </header>
 
-      <div className="ticks"></div>
+        {/* Authentication Card (Sign in, Sign up, or Logged In User Card) */}
+        <main className="w-full max-w-md">
+          <AuthForm />
+        </main>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        {/* Platform Feature Highlights */}
+        <footer className="max-w-md w-full mt-10 grid grid-cols-3 gap-3 text-center text-xs text-stone-600">
+          <div className="bg-white p-3 rounded-2xl border border-stone-200/70 shadow-sm flex flex-col items-center gap-1">
+            <Compass className="w-5 h-5 text-amber-700" />
+            <span className="font-semibold text-stone-800">גלה הדרכות</span>
+            <span className="text-[10px] text-stone-400">Find DIY Guides</span>
+          </div>
+          <div className="bg-white p-3 rounded-2xl border border-stone-200/70 shadow-sm flex flex-col items-center gap-1">
+            <Palette className="w-5 h-5 text-amber-700" />
+            <span className="font-semibold text-stone-800">שתף יצירות</span>
+            <span className="text-[10px] text-stone-400">Share Crafts</span>
+          </div>
+          <div className="bg-white p-3 rounded-2xl border border-stone-200/70 shadow-sm flex flex-col items-center gap-1">
+            <Heart className="w-5 h-5 text-amber-700" />
+            <span className="font-semibold text-stone-800">צבור נקודות</span>
+            <span className="text-[10px] text-stone-400">Earn Rewards</span>
+          </div>
+        </footer>
+      </div>
+    </AuthProvider>
   )
 }
 
