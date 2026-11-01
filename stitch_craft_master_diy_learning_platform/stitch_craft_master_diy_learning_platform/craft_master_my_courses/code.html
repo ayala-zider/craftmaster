@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Craft Master - My Courses</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#59614e",
+            "on-secondary-fixed": "#161e0f",
+            "on-surface": "#231a10",
+            "inverse-primary": "#fbb6a1",
+            "on-secondary-container": "#5d6652",
+            "on-error-container": "#93000a",
+            "background": "#fff8f4",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#6a3a2b",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffdcbd",
+            "secondary-fixed": "#dde6ce",
+            "error": "#ba1a1a",
+            "inverse-surface": "#392f23",
+            "on-surface-variant": "#52443f",
+            "surface-container-high": "#f7e5d4",
+            "tertiary-fixed-dim": "#e7bf9a",
+            "on-primary-container": "#fffbff",
+            "outline": "#84736f",
+            "surface-container-highest": "#f2dfce",
+            "primary": "#834e3e",
+            "on-primary-fixed": "#341005",
+            "on-tertiary-fixed": "#2b1701",
+            "on-background": "#231a10",
+            "on-tertiary-fixed-variant": "#5d4125",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#ffdbd0",
+            "surface-bright": "#fff8f4",
+            "on-tertiary-container": "#fffbff",
+            "tertiary-container": "#8f6e4e",
+            "on-secondary-fixed-variant": "#414938",
+            "surface-dim": "#e9d7c6",
+            "surface-container-low": "#fff1e6",
+            "surface-variant": "#f2dfce",
+            "surface": "#fff8f4",
+            "inverse-on-surface": "#ffeede",
+            "primary-fixed-dim": "#fbb6a1",
+            "secondary-container": "#dae3cb",
+            "tertiary": "#745638",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#d7c2bc",
+            "surface-tint": "#855140",
+            "primary-container": "#9f6655",
+            "secondary-fixed-dim": "#c1cab3",
+            "surface-container": "#fdebd9"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max-tablet": "768px",
+            "space-md": "1rem",
+            "space-lg": "1.25rem",
+            "space-xl": "1.5rem",
+            "space-4xl": "3.5rem",
+            "space-2xl": "2rem",
+            "space-3xl": "2.5rem",
+            "space-sm": "0.75rem",
+            "space-2xs": "0.25rem",
+            "space-xs": "0.5rem",
+            "gutter": "1rem",
+            "container-max-mobile": "430px"
+          },
+          "fontFamily": {
+            "label-lg": ["Quicksand"],
+            "body-sm": ["Quicksand"],
+            "label-sm": ["Quicksand"],
+            "headline-sm": ["Quicksand"],
+            "headline-md": ["Quicksand"],
+            "label-md": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "display-lg": ["Quicksand"],
+            "body-md": ["Quicksand"],
+            "body-lg": ["Quicksand"],
+            "display-lg-mobile": ["Quicksand"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim font-body-md text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary/20 selection:text-primary">
+<div class="w-full max-w-[430px] bg-background min-h-screen flex flex-col relative shadow-[0_12px_36px_-6px_rgba(110,80,60,0.18)]">
+<header class="bg-surface sticky top-0 z-40 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md py-space-xs max-w-[430px] mx-auto">
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs rounded-full hover:bg-surface-container text-primary transition-transform active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</button>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">Craft Master</span>
+</div>
+<button class="p-space-xs rounded-full hover:bg-surface-container text-primary transition-transform active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="stars" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+</button>
+</div>
+</header>
+<main class="flex-1 px-space-md pt-space-md pb-space-4xl flex flex-col gap-space-lg">
+<section class="flex flex-col gap-space-2xs">
+<h1 class="text-headline-lg font-headline-lg text-on-surface">My Courses</h1>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<p class="text-body-md font-body-md text-on-surface-variant">3 courses in progress</p>
+</div>
+</section>
+<section class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-space-md shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="text-label-md font-label-md text-secondary">Daily Craft Streak</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">5 days active crafting</p>
+</div>
+</div>
+<div class="flex items-center gap-space-2xs bg-surface-container px-space-sm py-space-2xs rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-body-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md text-primary">350 pts</span>
+</div>
+</section>
+<section class="flex flex-col gap-space-md">
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg overflow-hidden shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] transition-all hover:shadow-[0_8px_24px_-4px_rgba(190,129,110,0.22)]">
+<div class="grid grid-cols-2 h-56 sm:h-60">
+<div class="relative h-full w-full overflow-hidden p-space-xs">
+<img class="w-full h-full object-cover rounded-DEFAULT" data-alt="A warm, sun-drenched pottery studio scene showcasing hands shaping an organic terracotta ceramic bowl on an artisan wheel. The workshop table has natural linen textures, raw clay dust, and soft warm lighting casting gentle terracotta reflections. Earthy tones of beige, warm brick red, and olive herbs fill the artisanal background with soft focus depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAizJHbDQWLhzw8P_amoacMPJVjVHun_m2CyuHxQiUvZY46dlIHK_UZ5Mdf7lJJxTkf9EdNSq9V8unVSWrnI_4UXQBmL1rdLWvJi50NnEH_1ArpeX62ZRw5N6O2Z-IMDzKmPIFG4WsF-RRVO4oKfYpK8EzlzPXQ5o7BCv6v6rpHhJwh7lgNmZl9NX1XDDqLI1CiAoeppVt-vZdzzoHG3_scridG_jSu_yBnb0kLzDo-_Fbva3TLSKNGfg"/>
+<span class="absolute top-3 left-3 bg-secondary-container/90 backdrop-blur-sm text-secondary px-space-xs py-0.5 rounded-full text-label-sm font-label-sm shadow-sm">
+                Module 4 of 6
+              </span>
+</div>
+<div class="p-space-sm flex flex-col justify-between h-full bg-surface-container-low/50">
+<div class="flex flex-col gap-space-xs">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Pottery &amp; Clay</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-snug">Hand-Built Textured Ceramics</h2>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-label-sm">65% Completed</span>
+<span class="text-primary font-bold font-label-sm">65%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 65%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>18m left in session</span>
+</div>
+</div>
+<button class="w-full mt-space-xs bg-primary text-on-primary py-space-xs px-space-sm rounded-full font-label-md text-label-md flex items-center justify-center gap-space-2xs shadow-[0_4px_12px_rgba(131,78,62,0.25)] hover:bg-primary-container active:scale-95 transition-all">
+<span>Continue</span>
+<span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg overflow-hidden shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] transition-all hover:shadow-[0_8px_24px_-4px_rgba(190,129,110,0.22)]">
+<div class="grid grid-cols-2 h-56 sm:h-60">
+<div class="relative h-full w-full overflow-hidden p-space-xs">
+<img class="w-full h-full object-cover rounded-DEFAULT" data-alt="A cozy, tranquil craft table top view displaying chunky pastel merino wool yarn, wooden circular knitting needles, and a half-finished ribbed knit sweater. Soft sunlight streams from a nearby window, highlighting warm sand and sage green woolen strands resting on raw natural linen cloth in a cozy Scandinavian craft studio style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDArmL7OSrInpZOFfmbcPdQPKZmSXe8-cCVIm6KGv29tsbWlYUd1aYKrMwvW4Z8zVOoukd52e--vgXXmGGqjIJqPttZwLvR42E56Qu_DqpZshh2Etg0zlk4_5rJQ5E2_iNRVhLYPn2J9-F674Xrje8gUD6xkvo7pvz3IKG6OC8SJehgfAw23OX57dy0gwfiyC0Go2KUwfKfJRlRuinfa6iRVZTEiM9AMy9JQDiASSBOlUtNbyhb9QZN7w"/>
+<span class="absolute top-3 left-3 bg-secondary-container/90 backdrop-blur-sm text-secondary px-space-xs py-0.5 rounded-full text-label-sm font-label-sm shadow-sm">
+                Module 2 of 5
+              </span>
+</div>
+<div class="p-space-sm flex flex-col justify-between h-full bg-surface-container-low/50">
+<div class="flex flex-col gap-space-xs">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Fiber Arts</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-snug">Chunky Knitwear &amp; Cozy Loops</h2>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-label-sm">40% Completed</span>
+<span class="text-primary font-bold font-label-sm">40%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 40%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>35m left in session</span>
+</div>
+</div>
+<button class="w-full mt-space-xs bg-primary text-on-primary py-space-xs px-space-sm rounded-full font-label-md text-label-md flex items-center justify-center gap-space-2xs shadow-[0_4px_12px_rgba(131,78,62,0.25)] hover:bg-primary-container active:scale-95 transition-all">
+<span>Continue</span>
+<span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg overflow-hidden shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] transition-all hover:shadow-[0_8px_24px_-4px_rgba(190,129,110,0.22)]">
+<div class="grid grid-cols-2 h-56 sm:h-60">
+<div class="relative h-full w-full overflow-hidden p-space-xs">
+<img class="w-full h-full object-cover rounded-DEFAULT" data-alt="An artisanal botanical watercolor illustration setup with textured heavy cotton cold-pressed paper, delicate green eucalyptus leaves painted in wet-on-wet technique, round sable hair brushes, and brass porcelain paint mixing pans. Warm morning daylight shines softly across the wood table, highlighting gentle sage and peach pigments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEsgD2-dqQXlH5dZqU-I2VWo7OtfnevsYE2jHvsJZZDM4YXRZ-rJis-6ia5eWpD9jxyl6wVsp2Jk0c-E-KsyyjMVSdeFvxAwDOI4h4Cg1YMC577UMgcZVoz4uSkmgpafh_nS7CvneDBHTWXIHSWrEcwQfvXzMSNhVPCuZ_exqF7FGkYB37bZa9EvS6mjYCl6tH_-YZm8GkNOP2e2cXm5IAxpzfFw9SyXN0u1qvXXNEbBG4h9AYrqcvTQ"/>
+<span class="absolute top-3 left-3 bg-secondary-container/90 backdrop-blur-sm text-secondary px-space-xs py-0.5 rounded-full text-label-sm font-label-sm shadow-sm">
+                Module 5 of 6
+              </span>
+</div>
+<div class="p-space-sm flex flex-col justify-between h-full bg-surface-container-low/50">
+<div class="flex flex-col gap-space-xs">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Watercolor</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-snug">Botanical Flora &amp; Leaf Blends</h2>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-label-sm">85% Completed</span>
+<span class="text-primary font-bold font-label-sm">85%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 85%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-2xs text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>10m left in session</span>
+</div>
+</div>
+<button class="w-full mt-space-xs bg-primary text-on-primary py-space-xs px-space-sm rounded-full font-label-md text-label-md flex items-center justify-center gap-space-2xs shadow-[0_4px_12px_rgba(131,78,62,0.25)] hover:bg-primary-container active:scale-95 transition-all">
+<span>Continue</span>
+<span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<section class="bg-surface-container p-space-md rounded-lg flex flex-col items-center text-center gap-space-xs border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-headline-md" data-icon="tips_and_updates">tips_and_updates</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Creative Checkpoint</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-xs">Each session automatically bookmarks your exact spot so you can jump back whenever inspiration strikes!</p>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-space-md py-space-xs max-w-[430px] mx-auto bg-surface shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-label-sm font-label-sm">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-space-md py-space-xs transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(131,78,62,0.3)]" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="text-label-sm font-label-sm">My Courses</span>
+</a>
+</nav>
+</div>
+</body></html>

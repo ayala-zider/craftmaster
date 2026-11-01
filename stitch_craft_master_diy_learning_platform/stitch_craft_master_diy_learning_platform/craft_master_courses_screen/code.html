@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Craft Master - Explore Courses</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#59614e",
+            "on-secondary-fixed": "#161e0f",
+            "on-surface": "#231a10",
+            "inverse-primary": "#fbb6a1",
+            "on-secondary-container": "#5d6652",
+            "on-error-container": "#93000a",
+            "background": "#ECDAC9",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#6a3a2b",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffdcbd",
+            "secondary-fixed": "#dde6ce",
+            "error": "#ba1a1a",
+            "inverse-surface": "#392f23",
+            "on-surface-variant": "#52443f",
+            "surface-container-high": "#f7e5d4",
+            "tertiary-fixed-dim": "#e7bf9a",
+            "on-primary-container": "#fffbff",
+            "outline": "#84736f",
+            "surface-container-highest": "#f2dfce",
+            "primary": "#BE816E",
+            "on-primary-fixed": "#341005",
+            "on-tertiary-fixed": "#2b1701",
+            "on-background": "#231a10",
+            "on-tertiary-fixed-variant": "#5d4125",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#ffdbd0",
+            "surface-bright": "#fff8f4",
+            "on-tertiary-container": "#fffbff",
+            "tertiary-container": "#8f6e4e",
+            "on-secondary-fixed-variant": "#414938",
+            "surface-dim": "#e9d7c6",
+            "surface-container-low": "#fff1e6",
+            "surface-variant": "#E8CDB8",
+            "surface": "#F6EDE5",
+            "inverse-on-surface": "#ffeede",
+            "primary-fixed-dim": "#fbb6a1",
+            "secondary-container": "#dae3cb",
+            "tertiary": "#858E79",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#C8CCBD",
+            "surface-tint": "#BE816E",
+            "primary-container": "#BE816E",
+            "secondary-fixed-dim": "#c1cab3",
+            "surface-container": "#E8CDB8"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max-tablet": "768px",
+            "space-md": "1rem",
+            "space-lg": "1.25rem",
+            "space-xl": "1.5rem",
+            "space-4xl": "3.5rem",
+            "space-2xl": "2rem",
+            "space-3xl": "2.5rem",
+            "space-sm": "0.75rem",
+            "space-2xs": "0.25rem",
+            "space-xs": "0.5rem",
+            "gutter": "1rem",
+            "container-max-mobile": "430px"
+          },
+          "fontFamily": {
+            "label-lg": ["Quicksand"],
+            "body-sm": ["Quicksand"],
+            "label-sm": ["Quicksand"],
+            "headline-sm": ["Quicksand"],
+            "headline-md": ["Quicksand"],
+            "label-md": ["Quicksand"],
+            "headline-lg": ["Quicksand"],
+            "display-lg": ["Quicksand"],
+            "body-md": ["Quicksand"],
+            "body-lg": ["Quicksand"],
+            "display-lg-mobile": ["Quicksand"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #ECDAC9;
+      font-family: 'Quicksand', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-surface antialiased flex justify-center selection:bg-primary/20">
+<!-- Outer Mobile Shell (max-w-[430px]) -->
+<div class="w-full max-w-[430px] min-h-screen bg-background relative flex flex-col shadow-[0_12px_40px_rgba(110,80,60,0.12)] border-x border-outline-variant/30">
+<!-- TopAppBar (Anchored Shared Component) -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm transition-transform">
+<div class="flex justify-between items-center w-full px-space-md py-space-sm max-w-[430px] mx-auto">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="palette">palette</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Craft Master</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<!-- Star reward badge tracker -->
+<div class="flex items-center gap-1 bg-surface-container px-space-xs py-1 rounded-full border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-label-md font-label-md text-primary font-bold">142</span>
+</div>
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container transition-all active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Flow -->
+<main class="flex-1 px-space-md pt-space-md pb-28 flex flex-col gap-space-lg">
+<!-- Header Search & Create New Button -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<!-- Search Input Pill -->
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</div>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface text-on-surface text-body-md font-body-md rounded-full border border-outline-variant focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60 shadow-sm transition-all" placeholder="Search crafts, stitches, clay..." type="text"/>
+</div>
+<!-- Circular Plus (+) Button for Create Course -->
+<button class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_4px_14px_rgba(190,129,110,0.35)] hover:scale-105 active:scale-95 transition-all flex-shrink-0" id="openModalBtn" onclick="document.getElementById('createCourseModal').classList.remove('hidden')" title="Create New Course">
+<span class="material-symbols-outlined text-[24px]" data-icon="add">add</span>
+</button>
+</div>
+<!-- Filter Pills Scrollable Row -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-space-md px-space-md">
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-label-md font-label-md shadow-sm transition-all shrink-0">
+            All
+          </button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant border border-outline-variant text-label-md font-label-md hover:bg-surface-container shrink-0 transition-all">
+            Origami
+          </button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant border border-outline-variant text-label-md font-label-md hover:bg-surface-container shrink-0 transition-all">
+            Ceramics
+          </button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant border border-outline-variant text-label-md font-label-md hover:bg-surface-container shrink-0 transition-all">
+            Macramé
+          </button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant border border-outline-variant text-label-md font-label-md hover:bg-surface-container shrink-0 transition-all">
+            Paper Craft
+          </button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant border border-outline-variant text-label-md font-label-md hover:bg-surface-container shrink-0 transition-all">
+            Embroidery
+          </button>
+</div>
+</section>
+<!-- Interactive Banner Prompting "Share Your Art" (Visual representation for Create Course pop-up shortcut) -->
+<section class="bg-surface-container rounded-lg p-space-md border border-outline-variant/60 flex items-center justify-between shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface leading-tight">Become a Master Host</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Launch your workshop in 3 steps</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface text-primary border border-primary/30 text-label-sm font-label-sm hover:bg-primary hover:text-on-primary transition-all shrink-0" onclick="document.getElementById('createCourseModal').classList.remove('hidden')">
+          Create
+        </button>
+</section>
+<!-- Section Title with Course Count -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-md font-headline-md text-on-surface font-bold tracking-tight">Explore Workshops</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-bold">18 Courses</span>
+</div>
+<button class="text-tertiary flex items-center gap-0.5 text-label-md font-label-md hover:underline">
+<span>Sort by: Top Rated</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Fifty-Fifty Square Layout Course Cards Stack -->
+<section class="flex flex-col gap-space-md">
+<!-- Course Card 1: Beginner (Ceramics) -->
+<article class="bg-surface rounded-lg overflow-hidden border border-outline-variant shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] hover:shadow-md transition-all flex flex-row h-44">
+<!-- Left 50% Image Square Module -->
+<div class="w-1/2 relative bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm, sun-drenched pottery wheel with hands shaping a terracotta clay cup on a rustic wooden artisan workbench. Soft natural warm golden hour sunlight illuminates pottery tools, organic linen towels, and dried sage botanicals in the background. Photographed in an artisanal studio setting with earthy tones of terracotta, beach sand, and dusty clay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXVIFleH-dIPj6E770ZN_yvqDCTTlsQbKMdzsf6f1VrA7Qq2TQ9wrRy7y5hmpHslIX7RJF5kGYkiy717f4hBjIlIv0RA9ICqQ6I8ccgQ-t757bVpWPCCHnIqe0xLOIdZD0g6TJ222IeN8p0rQTESaIoi7NYvU50GZ17Wb8aeMeATw_M4CckPSfpBRuyx7-2QSufzhHrRsx12uMqHaLiHy-_oqxxytivJd6G8wLcC-gQs6DzuiX1TBA2A"/>
+<div class="absolute top-2 left-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface/90 backdrop-blur-sm text-on-surface text-label-sm font-label-sm border border-outline-variant/50">
+                Ceramics
+              </span>
+</div>
+</div>
+<!-- Right 50% Info Content -->
+<div class="w-1/2 p-3.5 flex flex-col justify-between bg-surface">
+<div>
+<!-- Difficulty Level Badge: Beginner (⭐️ 2) -->
+<div class="flex items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-bold inline-flex items-center gap-1">
+                  Beginner
+                  <span class="inline-flex items-center text-primary text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 2
+                  </span>
+</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-tight">Handbuilt Pinch Pots &amp; Vessels</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="person">person</span>
+                Aria Thorne
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span> 45m
+              </span>
+<button class="w-7 h-7 rounded-full bg-primary/15 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Course Card 2: Intermediate (Macramé) -->
+<article class="bg-surface rounded-lg overflow-hidden border border-outline-variant shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] hover:shadow-md transition-all flex flex-row h-44">
+<!-- Left 50% Image Square Module -->
+<div class="w-1/2 relative bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Intricate macramé woven plant hanger crafted from natural unbleached cotton cord hanging on a weathered driftwood branch. The backdrop features a sunlit soft cream wall with terracotta flower pots and lush hanging ivy. The scene exudes handcrafted, tranquil bohemian vibes with warm natural shadows and tactile braided fiber details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLaW7HeLwxna_BWHbEk2C8VUTJCNV_GTvfdk32_igR6ZlShe5PZk1fsXjCQbxSUlq96KeP0RUz85SVUCD8eCsrjb1z6rvWlG_Qy7E0BYKTBt5lC0oIRD3OOC1kBgP8j017bjWw9nsj-eGYLqo0bhFozU5ZMEUYR73Njg-AGjzUdO6BSgjaPZZau9w49CyflhnoFp-EkiT190EumhPCZG7GJUlQic22IT1pA2pVIyHnaQSq7koRW7779A"/>
+<div class="absolute top-2 left-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface/90 backdrop-blur-sm text-on-surface text-label-sm font-label-sm border border-outline-variant/50">
+                Macramé
+              </span>
+</div>
+</div>
+<!-- Right 50% Info Content -->
+<div class="w-1/2 p-3.5 flex flex-col justify-between bg-surface">
+<div>
+<!-- Difficulty Level Badge: Intermediate (⭐️ 5) -->
+<div class="flex items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-label-sm font-bold inline-flex items-center gap-1">
+                  Intermediate
+                  <span class="inline-flex items-center text-primary text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 5
+                  </span>
+</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-tight">Boho Tapestry &amp; Lark Head Knots</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="person">person</span>
+                Kaelen Voss
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span> 1h 20m
+              </span>
+<button class="w-7 h-7 rounded-full bg-primary/15 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Course Card 3: Master (Origami) -->
+<article class="bg-surface rounded-lg overflow-hidden border border-outline-variant shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] hover:shadow-md transition-all flex flex-row h-44">
+<!-- Left 50% Image Square Module -->
+<div class="w-1/2 relative bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Delicate complex 3D geometric paper origami sculpture folded from textured handmade Japanese washi paper in tones of terracotta, sage green, and soft ivory. The art piece sits on a sand-colored linen textile with gentle morning light creating crisp soft-focus geometric paper shadows across the studio surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_dAUOyxDxiAbUK4Js3SbLbVR773661genj2GPqCeepAyUZhEFCoT9hZyAAkd2O4PILhLI4I1TYVYat7il042jNcCLeU21I9ygtL5qg9l3gaNOQzqMaAjAIVkSOuRfm9F6t_vOF1SbwSYGnj_0RNWxNuz8Hpj6bDbczon66hNmpi76p75_xWZPNDrOzvOEP7Aa40UOvmJ0i8P5ybp9UqrYXDj0MR0QnJS_ehyA05FeETa5HrLEAZSWVg"/>
+<div class="absolute top-2 left-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface/90 backdrop-blur-sm text-on-surface text-label-sm font-label-sm border border-outline-variant/50">
+                Origami
+              </span>
+</div>
+</div>
+<!-- Right 50% Info Content -->
+<div class="w-1/2 p-3.5 flex flex-col justify-between bg-surface">
+<div>
+<!-- Difficulty Level Badge: Master (⭐️ 8) -->
+<div class="flex items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-label-sm font-label-sm font-bold inline-flex items-center gap-1">
+                  Master
+                  <span class="inline-flex items-center text-primary text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 8
+                  </span>
+</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-tight">Modular Polyhedra &amp; Tessellations</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="person">person</span>
+                Kenji Sato
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span> 2h 45m
+              </span>
+<button class="w-7 h-7 rounded-full bg-primary/15 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Course Card 4: Beginner (Embroidery) -->
+<article class="bg-surface rounded-lg overflow-hidden border border-outline-variant shadow-[0_4px_14px_-2px_rgba(110,80,60,0.08)] hover:shadow-md transition-all flex flex-row h-44">
+<!-- Left 50% Image Square Module -->
+<div class="w-1/2 relative bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Round wooden embroidery hoop framing a botanical wild meadow design stitched with delicate French knots and satin stitches in shades of dusty rose, forest sage, and golden ochre. Resting on a warm cream cotton tablecloth next to vintage brass scissors and colorful spools of silk thread in soft atmospheric ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwWfQIUIrOI6Xrb9H2wZ0bYgrlpZJlRStn4NUDS0o6y0G4vrN5nv4vW05d6d4aanDzxXJmzAvgOuJjElu6sKsai3CqFRT-MLNEfVp7TAgdIFFvWbaO6BmmJP8vfUmqtzvKspmEsMPbz1kV8NwlmqPHj5HOnUFINR6vHZk6OhlFMiDRixKqmHOhwnsVxYBMSlxbhEd64zF1ceQ6f0dMKEt694tT2ughFx2A2_hDlxj_AZAIZgQwNGu0zQ"/>
+<div class="absolute top-2 left-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface/90 backdrop-blur-sm text-on-surface text-label-sm font-label-sm border border-outline-variant/50">
+                Embroidery
+              </span>
+</div>
+</div>
+<!-- Right 50% Info Content -->
+<div class="w-1/2 p-3.5 flex flex-col justify-between bg-surface">
+<div>
+<!-- Difficulty Level Badge: Beginner (⭐️ 2) -->
+<div class="flex items-center gap-1 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-bold inline-flex items-center gap-1">
+                  Beginner
+                  <span class="inline-flex items-center text-primary text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 2
+                  </span>
+</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface line-clamp-2 leading-tight">Wild Flora Hoops &amp; Satin Stitch</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="person">person</span>
+                Mila Rosales
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span> 55m
+              </span>
+<button class="w-7 h-7 rounded-full bg-primary/15 text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Create Course Pop-up Modal (Overlay Indicator with Mandatory Fields) -->
+<div class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-on-surface/40 backdrop-blur-xs transition-opacity" id="createCourseModal">
+<div class="w-full max-w-[430px] bg-surface rounded-t-xl sm:rounded-xl border border-outline-variant shadow-2xl p-space-lg flex flex-col gap-space-md max-h-[795px] overflow-y-auto">
+<!-- Modal Header -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary/15 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface">Create New Course</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Fill in the mandatory workshop details</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('createCourseModal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Mandatory Fields Form -->
+<form class="flex flex-col gap-space-sm" onsubmit="event.preventDefault(); document.getElementById('createCourseModal').classList.add('hidden');">
+<!-- Field 1: Title (Mandatory) -->
+<div class="flex flex-col gap-1">
+<label class="text-label-md font-label-md text-on-surface flex items-center justify-between">
+<span>Title <span class="text-primary">*</span></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant/60">Required</span>
+</label>
+<input class="w-full px-3.5 py-2.5 rounded-DEFAULT bg-surface-container-lowest border border-outline-variant text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="e.g. Master Botanical Ceramic Stamps" required="" type="text"/>
+</div>
+<!-- Field 2: Difficulty Level (Mandatory) -->
+<div class="flex flex-col gap-1">
+<label class="text-label-md font-label-md text-on-surface">
+              Difficulty <span class="text-primary">*</span>
+</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer border border-outline-variant rounded-DEFAULT p-2 flex flex-col items-center gap-1 bg-surface-container-lowest hover:border-primary peer-checked:border-primary">
+<input checked="" class="sr-only peer" name="difficulty" type="radio" value="beginner"/>
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Beginner</span>
+<span class="text-[11px] font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 2
+                </span>
+</label>
+<label class="cursor-pointer border border-outline-variant rounded-DEFAULT p-2 flex flex-col items-center gap-1 bg-surface-container-lowest hover:border-primary">
+<input class="sr-only peer" name="difficulty" type="radio" value="intermediate"/>
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Intermediate</span>
+<span class="text-[11px] font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 5
+                </span>
+</label>
+<label class="cursor-pointer border border-outline-variant rounded-DEFAULT p-2 flex flex-col items-center gap-1 bg-surface-container-lowest hover:border-primary">
+<input class="sr-only peer" name="difficulty" type="radio" value="master"/>
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Master</span>
+<span class="text-[11px] font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> 8
+                </span>
+</label>
+</div>
+</div>
+<!-- Field 3: Intro / Brief Pitch (Mandatory) -->
+<div class="flex flex-col gap-1">
+<label class="text-label-md font-label-md text-on-surface flex items-center justify-between">
+<span>Intro Pitch <span class="text-primary">*</span></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant/60">Short summary</span>
+</label>
+<input class="w-full px-3.5 py-2.5 rounded-DEFAULT bg-surface-container-lowest border border-outline-variant text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="A gentle 30-minute creative sanctuary for beginners..." required="" type="text"/>
+</div>
+<!-- Field 4: Content / Syllabus Outline (Mandatory) -->
+<div class="flex flex-col gap-1">
+<label class="text-label-md font-label-md text-on-surface">
+              Course Content &amp; Modules <span class="text-primary">*</span>
+</label>
+<textarea class="w-full px-3.5 py-2 rounded-DEFAULT bg-surface-container-lowest border border-outline-variant text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Outline steps, clay preparation, carving techniques..." required="" rows="2"></textarea>
+</div>
+<!-- Field 5: Tags (Mandatory) -->
+<div class="flex flex-col gap-1">
+<label class="text-label-md font-label-md text-on-surface">
+              Tags <span class="text-primary">*</span>
+</label>
+<div class="flex flex-wrap gap-1.5 mb-1">
+<span class="px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm flex items-center gap-1 border border-outline-variant/50">
+                Clay <span class="material-symbols-outlined text-[12px] cursor-pointer" data-icon="close">close</span>
+</span>
+<span class="px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm flex items-center gap-1 border border-outline-variant/50">
+                Botanicals <span class="material-symbols-outlined text-[12px] cursor-pointer" data-icon="close">close</span>
+</span>
+<span class="px-2.5 py-1 bg-surface-container-lowest text-primary rounded-full text-label-sm font-label-sm border border-dashed border-primary/50 cursor-pointer">
+                + Add Tag
+              </span>
+</div>
+</div>
+<!-- Field 6: Creator Toggle ON/OFF (Mandatory) -->
+<div class="p-3 bg-surface-container rounded-DEFAULT border border-outline-variant flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface">Creator Profile Badge</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Feature on public community feed</span>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Submit Action Button -->
+<div class="pt-2 flex gap-2">
+<button class="flex-1 py-3 rounded-full border border-outline-variant bg-surface text-on-surface font-label-md text-label-md hover:bg-surface-container transition-all" onclick="document.getElementById('createCourseModal').classList.add('hidden')" type="button">
+              Cancel
+            </button>
+<button class="flex-1 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-[0_6px_18px_rgba(190,129,110,0.28)] hover:brightness-105 active:scale-95 transition-all" type="submit">
+              Publish Course
+            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- BottomNavBar (Shared Component Anchor) -->
+<!-- STRICT LOGIC: 'Courses' is current screen -> Apply style_active_navigation, 'Home' & 'My Courses' -> style_inactive_navigation -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-space-md py-space-xs max-w-[430px] mx-auto bg-surface shadow-lg">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+</a>
+<!-- Courses (ACTIVE - Red Brick Pill Highlight) -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-space-md py-space-xs transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-label-sm font-label-sm mt-0.5">Courses</span>
+</a>
+<!-- My Courses (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="auto_stories">auto_stories</span>
+<span class="text-label-sm font-label-sm mt-0.5">My Courses</span>
+</a>
+</nav>
+</div>
+</body></html>
