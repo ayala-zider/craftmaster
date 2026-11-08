@@ -4,6 +4,7 @@ import { auth } from '../firebase'
 import {
   registerUser,
   loginUser,
+  loginWithGoogle,
   logoutUser,
   getUserProfile,
   type UserProfile,
@@ -56,6 +57,11 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
     await fetchProfile(loggedInUser.uid)
   }
 
+  const signInWithGoogle = async () => {
+    const googleProfile = await loginWithGoogle()
+    setProfile(googleProfile)
+  }
+
   const logOut = async () => {
     await logoutUser()
     setUser(null)
@@ -76,6 +82,7 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
         loading,
         signUp,
         signIn,
+        signInWithGoogle,
         logOut,
         refreshProfile,
       }}

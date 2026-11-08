@@ -22,14 +22,18 @@ I am a student learning AI Agents and software development. I am at a beginner/i
 
 ## 2\. Pages \& Features
 
+log in -  a form with email and password and a button to log in. and a button to sign up.an option to sign in and log in with google.
+
+home - a massage welcoming the user by the username with a quet that changes every time you log in under it, below it there is a bar shoing the amount of stars you have and your levle, below it you have the "courses you started" with a squire for its course that have a crosle affect. at a buttom a teskbar with 3 buttons and its time you are on the screen the corisponding button is painted a differnte color.
+
+courses  - a page with a search bar and a pluse next to it that when presed pops up a window to add a new course. underneat thare are buttons for quick fillters  and below it there are the courses, each course is a squire, the upper half is a picture of thw course and the buttom half is the name of the course and its creator.
+
+newCourse - page with a form to add a new course, the form has a title, a description, a picture, a category, difficalty level(bigginer, medium, master) and a button to add the course.
+
+myCourses - a page with the courses the user started,each course is a squire, the upper half is a picture of thw course and the buttom half is the name of the course and its creator, and under the course there is a bar showing how much is done in presenteges. 
 
 
-<!-- פרטו כל עמוד ומה יש בו -->
 
-
-
-Home - תיאור קצר למסך הבית
-[ושאר המסכים]
 
 
 

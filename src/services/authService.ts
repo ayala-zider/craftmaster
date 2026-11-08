@@ -3,6 +3,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
   type User,
 } from 'firebase/auth'
 import {
@@ -62,6 +64,29 @@ export async function registerUser(
 export async function loginUser(email: string, password: string): Promise<User> {
   const userCredential = await signInWithEmailAndPassword(auth, email, password)
   return userCredential.user
+}
+
+/**
+ * Log in with Google popup and ensure a user profile document exists in Firestore
+ */
+export async function loginWithGoogle(): Promise<UserProfile> {
+  const provider = new GoogleAuthProvider()
+  const userCredential = await signInWithPopup(auth, provider)
+  const user = userCredential.user
+
+  let profile = await getUserProfile(user.uid)
+  if (!profile) {
+    profile = {
+      uid: user.uid,
+      email: user.email || '',
+      displayName: user.displayName || 'Craft Maker',
+      points: 0,
+      createdAt: serverTimestamp(),
+    }
+    const userDocRef = doc(db, 'users', user.uid)
+    await setDoc(userDocRef, profile)
+  }
+  return profile
 }
 
 /**
