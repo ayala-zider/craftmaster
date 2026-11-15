@@ -3,11 +3,15 @@
 @theme {
   --color-primary: #834e3e;
   --color-primary-container: #9f6655;
+  --color-primary-fixed: #ffdbd0;
   --color-on-primary: #ffffff;
+  --color-background: #fff8f4;
   --color-surface: #fff8f4;
   --color-surface-dim: #ECDAC9;
   --color-surface-container: #fdebd9;
   --color-surface-container-low: #fff1e6;
+  --color-surface-container-high: #f7e5d4;
+  --color-surface-container-lowest: #ffffff;
   --color-on-surface: #231a10;
   --color-on-surface-variant: #52443f;
   --color-outline: #84736f;
@@ -15,6 +19,7 @@
   --color-secondary: #59614e;
   --color-secondary-container: #dae3cb;
   --color-on-secondary-container: #5d6652;
+  --color-tertiary: #745638;
 
   --spacing-space-2xs: 0.25rem;
   --spacing-space-xs: 0.5rem;
@@ -24,6 +29,11 @@
   --spacing-space-xl: 1.5rem;
   --spacing-space-2xl: 2rem;
   --spacing-space-3xl: 2.5rem;
+  --spacing-space-4xl: 3.5rem;
+
+  --color-secondary-fixed: #dde6ce;
+  --color-on-secondary-fixed: #161e0f;
+  --color-on-primary-fixed: #341005;
 
   --text-body-sm: 12px;
   --text-body-md: 14px;
@@ -66,4 +76,22 @@ body {
   direction: ltr;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Hide scrollbar for horizontal carousels while keeping scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Warm tactile shadows defined in the Stitch design */
+.soft-tactile-shadow {
+  box-shadow: 0px 6px 18px -3px rgba(131, 78, 62, 0.12);
+}
+
+.pill-float-shadow {
+  box-shadow: 0px 8px 24px -4px rgba(190, 129, 110, 0.22);
 }
