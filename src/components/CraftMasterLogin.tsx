@@ -3,9 +3,10 @@ import { useAuth } from '../context/useAuth'
 
 interface CraftMasterLoginProps {
   onSignUpClick?: () => void
+  onLoginSuccess?: () => void
 }
 
-export const CraftMasterLogin: FC<CraftMasterLoginProps> = ({ onSignUpClick }) => {
+export const CraftMasterLogin: FC<CraftMasterLoginProps> = ({ onSignUpClick, onLoginSuccess }) => {
   // Access Firebase Authentication actions from AuthContext
   const { signIn, signInWithGoogle } = useAuth()
 
@@ -13,7 +14,12 @@ export const CraftMasterLogin: FC<CraftMasterLoginProps> = ({ onSignUpClick }) =
   const [identifier, setIdentifier] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [showPassword, setShowPassword] = useState<boolean>(false)
-  const [rememberMe, setRememberMe] = useState<boolean>(false)
+  
+  // Initialize rememberMe from localStorage
+  const [rememberMe, setRememberMe] = useState<boolean>(() => {
+    return localStorage.getItem('craftmaster_remember_device') === 'true'
+  })
+  
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
@@ -30,6 +36,17 @@ export const CraftMasterLogin: FC<CraftMasterLoginProps> = ({ onSignUpClick }) =
     setIsSubmitting(true)
     try {
       await signIn(identifier.trim(), password)
+      
+      // Save device preference if checked
+      if (rememberMe) {
+        localStorage.setItem('craftmaster_remember_device', 'true')
+      } else {
+        localStorage.removeItem('craftmaster_remember_device')
+      }
+
+      if (onLoginSuccess) {
+        onLoginSuccess()
+      }
     } catch (err: unknown) {
       const error = err as { code?: string; message?: string }
       if (
@@ -52,6 +69,17 @@ export const CraftMasterLogin: FC<CraftMasterLoginProps> = ({ onSignUpClick }) =
     setIsSubmitting(true)
     try {
       await signInWithGoogle()
+      
+      // Save device preference if checked
+      if (rememberMe) {
+        localStorage.setItem('craftmaster_remember_device', 'true')
+      } else {
+        localStorage.removeItem('craftmaster_remember_device')
+      }
+
+      if (onLoginSuccess) {
+        onLoginSuccess()
+      }
     } catch (err: unknown) {
       const error = err as { message?: string }
       setErrorMessage(error.message || 'Google sign-in failed.')
@@ -187,7 +215,15 @@ export const CraftMasterLogin: FC<CraftMasterLoginProps> = ({ onSignUpClick }) =
                 id="remember-me"
                 type="checkbox"
                 checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
+                onChange={(e) => {
+                  const checked = e.target.checked
+                  setRememberMe(checked)
+                  if (checked) {
+                    localStorage.setItem('craftmaster_remember_device', 'true')
+                  } else {
+                    localStorage.removeItem('craftmaster_remember_device')
+                  }
+                }}
               />
               <label className="text-body-sm font-body-sm text-on-surface-variant cursor-pointer select-none" htmlFor="remember-me">
                 Remember this device

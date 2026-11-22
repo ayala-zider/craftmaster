@@ -7,6 +7,7 @@ import { useState } from 'react'
 export interface CraftMasterCoursesScreenProps {
   onNavigate?: (tab: 'home' | 'courses' | 'my-courses') => void
   onCourseClick?: (courseId: string) => void
+  onCreateCourseClick?: () => void
 }
 
 /**
@@ -15,7 +16,7 @@ export interface CraftMasterCoursesScreenProps {
  * Direct, faithful React conversion of `craft_master_courses_screen/code.html`.
  * Features:
  *  1. Top app bar with palette icon, title, stars badge (142), and notification bell
- *  2. Search bar with plus (+) action button to open Create Course pop-up modal
+ *  2. Search bar with plus (+) action button to open Create Course screen
  *  3. Quick category filter pills (All, Origami, Ceramics, Macramé, Paper Craft, Embroidery)
  *  4. "Become a Master Host" creator banner
  *  5. 50/50 Course card list with difficulty badges (Beginner, Intermediate, Master), author, duration, and forward navigation
@@ -25,6 +26,7 @@ export interface CraftMasterCoursesScreenProps {
 export function CraftMasterCoursesScreen({
   onNavigate,
   onCourseClick,
+  onCreateCourseClick,
 }: CraftMasterCoursesScreenProps) {
   // Search query text state
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -146,12 +148,18 @@ export function CraftMasterCoursesScreen({
               />
             </div>
 
-            {/* Circular Plus (+) Button to open Create Course Modal */}
+            {/* Circular Plus (+) Button to open Create Course Screen */}
             <button
               type="button"
               id="openModalBtn"
               title="Create New Course"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                if (onCreateCourseClick) {
+                  onCreateCourseClick()
+                } else {
+                  setIsModalOpen(true)
+                }
+              }}
               className="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_4px_14px_rgba(190,129,110,0.35)] hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
             >
               <span className="material-symbols-outlined text-[24px]" data-icon="add">
@@ -201,7 +209,13 @@ export function CraftMasterCoursesScreen({
           </div>
           <button
             type="button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              if (onCreateCourseClick) {
+                onCreateCourseClick()
+              } else {
+                setIsModalOpen(true)
+              }
+            }}
             className="px-3 py-1.5 rounded-full bg-surface text-primary border border-primary/30 text-label-sm font-label-sm hover:bg-primary hover:text-on-primary transition-all shrink-0 cursor-pointer"
           >
             Create

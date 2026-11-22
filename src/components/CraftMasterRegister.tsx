@@ -3,9 +3,10 @@ import { useAuth } from '../context/useAuth'
 
 interface CraftMasterRegisterProps {
   onLoginClick?: () => void
+  onRegisterSuccess?: () => void
 }
 
-export const CraftMasterRegister: FC<CraftMasterRegisterProps> = ({ onLoginClick }) => {
+export const CraftMasterRegister: FC<CraftMasterRegisterProps> = ({ onLoginClick, onRegisterSuccess }) => {
   // Access Firebase Authentication actions from AuthContext
   const { signUp, signInWithGoogle } = useAuth()
 
@@ -45,6 +46,9 @@ export const CraftMasterRegister: FC<CraftMasterRegisterProps> = ({ onLoginClick
     try {
       const displayName = `${firstName} ${familyName}`.trim() || 'Craft Maker'
       await signUp(email.trim(), password, displayName)
+      if (onRegisterSuccess) {
+        onRegisterSuccess()
+      }
     } catch (err: unknown) {
       const error = err as { code?: string; message?: string }
       if (error.code === 'auth/email-already-in-use') {
@@ -65,6 +69,9 @@ export const CraftMasterRegister: FC<CraftMasterRegisterProps> = ({ onLoginClick
     setIsSubmitting(true)
     try {
       await signInWithGoogle()
+      if (onRegisterSuccess) {
+        onRegisterSuccess()
+      }
     } catch (err: unknown) {
       const error = err as { message?: string }
       setErrorMessage(error.message || 'Google sign-in failed.')

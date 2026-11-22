@@ -90,38 +90,18 @@ export function CraftMasterHomeScreen({
             </span>
           </div>
 
-          {/* Creative stars status button / sign-out shortcut */}
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="Creative stars activity"
-              className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-150 cursor-pointer"
-              type="button"
-            >
-              <span
-                className="material-symbols-outlined text-primary"
-                data-icon="stars"
-                data-weight="fill"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                stars
-              </span>
-            </button>
-
-            {/* Optional logout button if provided by parent */}
-            {onSignOut && (
-              <button
-                aria-label="Sign out"
-                onClick={onSignOut}
-                className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-[#ba1a1a] hover:bg-[#ffdad6] transition-colors active:scale-95 duration-150 cursor-pointer"
-                title="Sign out"
-                type="button"
-              >
-                <span className="material-symbols-outlined text-sm">
-                  logout
-                </span>
-              </button>
-            )}
-          </div>
+          {/* Sign Out Action Button (replaces the star icon in header) */}
+          <button
+            aria-label="Sign out"
+            onClick={onSignOut}
+            className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:text-[#ba1a1a] hover:bg-[#ffdad6] transition-colors active:scale-95 duration-150 cursor-pointer"
+            title="Sign out"
+            type="button"
+          >
+            <span className="material-symbols-outlined text-[20px]" data-icon="logout">
+              logout
+            </span>
+          </button>
         </div>
       </header>
 

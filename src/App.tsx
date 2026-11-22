@@ -7,15 +7,37 @@ import { CraftMasterHomeScreen } from './components/CraftMasterHomeScreen'
 import { CraftMasterCourseInsite } from './components/CraftMasterCourseInsite'
 import { CraftMasterCoursesScreen } from './components/CraftMasterCoursesScreen'
 import { CraftMasterCreateCourse } from './components/CraftMasterCreateCourse'
+import { CraftMasterMyCourses } from './components/CraftMasterMyCourses'
 
 // Inner component to access authentication state from AuthProvider
 function AppContent() {
   const { user, profile, loading, logOut } = useAuth()
   
-  // Navigation state between screens: 'home', 'courses', 'course-insite', 'create-course', 'login', or 'register'
+  // Check if the user opted to "Remember this device" in a previous session
+  const isDeviceRemembered = localStorage.getItem('craftmaster_remember_device') === 'true'
+
+  // Track if current browsing session is active (either remembered from before, or logged in during this session)
+  const [isSessionActive, setIsSessionActive] = useState<boolean>(isDeviceRemembered)
+
+  // Navigation state between screens: 'home', 'courses', 'my-courses', 'course-insite', 'create-course', 'login', or 'register'
+  // When opening the site: if remembered -> straight to 'home', otherwise start on 'login'
   const [currentScreen, setCurrentScreen] = useState<
-    'home' | 'courses' | 'course-insite' | 'create-course' | 'login' | 'register'
-  >('create-course')
+    'home' | 'courses' | 'my-courses' | 'course-insite' | 'create-course' | 'login' | 'register'
+  >(() => (isDeviceRemembered ? 'home' : 'login'))
+
+  // Sign out handler: clears remembered device flag, resets session and redirects to login
+  const handleSignOut = async () => {
+    localStorage.removeItem('craftmaster_remember_device')
+    setIsSessionActive(false)
+    setCurrentScreen('login')
+    await logOut()
+  }
+
+  // Handle successful login
+  const handleLoginSuccess = () => {
+    setIsSessionActive(true)
+    setCurrentScreen('home')
+  }
 
   // 1. Loading State while Firebase verifies active session
   if (loading) {
@@ -27,8 +49,8 @@ function AppContent() {
     )
   }
 
-  // 2. Authenticated User View
-  if (user) {
+  // 2. Authenticated User View (only when session is active and user is signed in)
+  if (user && isSessionActive) {
     if (currentScreen === 'create-course') {
       return (
         <CraftMasterCreateCourse
@@ -37,6 +59,7 @@ function AppContent() {
           onNavigate={(tab) => {
             if (tab === 'home') setCurrentScreen('home')
             if (tab === 'courses') setCurrentScreen('courses')
+            if (tab === 'my-courses') setCurrentScreen('my-courses')
           }}
         />
       )
@@ -56,8 +79,22 @@ function AppContent() {
         <CraftMasterCoursesScreen
           onNavigate={(tab) => {
             if (tab === 'home') setCurrentScreen('home')
+            if (tab === 'my-courses') setCurrentScreen('my-courses')
           }}
           onCourseClick={() => setCurrentScreen('course-insite')}
+          onCreateCourseClick={() => setCurrentScreen('create-course')}
+        />
+      )
+    }
+
+    if (currentScreen === 'my-courses') {
+      return (
+        <CraftMasterMyCourses
+          onNavigate={(tab) => {
+            if (tab === 'home') setCurrentScreen('home')
+            if (tab === 'courses') setCurrentScreen('courses')
+          }}
+          onContinueCourse={() => setCurrentScreen('course-insite')}
         />
       )
     }
@@ -66,10 +103,10 @@ function AppContent() {
       <CraftMasterHomeScreen
         userName={profile?.displayName || user.displayName || user.email?.split('@')[0] || 'Noa Crafty'}
         userStars={profile?.points ?? 15}
-        onSignOut={logOut}
+        onSignOut={handleSignOut}
         onNavigate={(tab) => {
           if (tab === 'courses') setCurrentScreen('courses')
-          if (tab === 'my-courses') setCurrentScreen('course-insite')
+          if (tab === 'my-courses') setCurrentScreen('my-courses')
         }}
       />
     )
@@ -83,14 +120,14 @@ function AppContent() {
         <span className="text-[#52443f] mr-1">Preview:</span>
         <button
           type="button"
-          onClick={() => setCurrentScreen('create-course')}
+          onClick={() => setCurrentScreen('home')}
           className={`px-3 py-1 rounded-full cursor-pointer transition ${
-            currentScreen === 'create-course'
+            currentScreen === 'home'
               ? 'bg-[#834e3e] text-white shadow-xs'
               : 'text-[#834e3e] hover:bg-[#fdebd9]'
           }`}
         >
-          Create Course Modal
+          Home Screen
         </button>
         <button
           type="button"
@@ -105,6 +142,17 @@ function AppContent() {
         </button>
         <button
           type="button"
+          onClick={() => setCurrentScreen('my-courses')}
+          className={`px-3 py-1 rounded-full cursor-pointer transition ${
+            currentScreen === 'my-courses'
+              ? 'bg-[#834e3e] text-white shadow-xs'
+              : 'text-[#834e3e] hover:bg-[#fdebd9]'
+          }`}
+        >
+          My Courses
+        </button>
+        <button
+          type="button"
           onClick={() => setCurrentScreen('course-insite')}
           className={`px-3 py-1 rounded-full cursor-pointer transition ${
             currentScreen === 'course-insite'
@@ -113,17 +161,6 @@ function AppContent() {
           }`}
         >
           Course Lesson View
-        </button>
-        <button
-          type="button"
-          onClick={() => setCurrentScreen('home')}
-          className={`px-3 py-1 rounded-full cursor-pointer transition ${
-            currentScreen === 'home'
-              ? 'bg-[#834e3e] text-white shadow-xs'
-              : 'text-[#834e3e] hover:bg-[#fdebd9]'
-          }`}
-        >
-          Home Screen
         </button>
         <button
           type="button"
@@ -150,14 +187,13 @@ function AppContent() {
       </div>
 
       {/* Render selected screen */}
-      {currentScreen === 'create-course' && (
-        <CraftMasterCreateCourse
-          onClose={() => setCurrentScreen('courses')}
-          onPublish={() => setCurrentScreen('courses')}
+      {currentScreen === 'my-courses' && (
+        <CraftMasterMyCourses
           onNavigate={(tab) => {
             if (tab === 'home') setCurrentScreen('home')
             if (tab === 'courses') setCurrentScreen('courses')
           }}
+          onContinueCourse={() => setCurrentScreen('course-insite')}
         />
       )}
 
@@ -165,8 +201,22 @@ function AppContent() {
         <CraftMasterCoursesScreen
           onNavigate={(tab) => {
             if (tab === 'home') setCurrentScreen('home')
+            if (tab === 'my-courses') setCurrentScreen('my-courses')
           }}
           onCourseClick={() => setCurrentScreen('course-insite')}
+          onCreateCourseClick={() => setCurrentScreen('create-course')}
+        />
+      )}
+
+      {currentScreen === 'create-course' && (
+        <CraftMasterCreateCourse
+          onClose={() => setCurrentScreen('courses')}
+          onPublish={() => setCurrentScreen('courses')}
+          onNavigate={(tab) => {
+            if (tab === 'home') setCurrentScreen('home')
+            if (tab === 'courses') setCurrentScreen('courses')
+            if (tab === 'my-courses') setCurrentScreen('my-courses')
+          }}
         />
       )}
 
@@ -181,19 +231,26 @@ function AppContent() {
         <CraftMasterHomeScreen
           userName="Noa Crafty"
           userStars={15}
+          onSignOut={handleSignOut}
           onNavigate={(tab) => {
             if (tab === 'courses') setCurrentScreen('courses')
-            if (tab === 'my-courses') setCurrentScreen('course-insite')
+            if (tab === 'my-courses') setCurrentScreen('my-courses')
           }}
         />
       )}
 
       {currentScreen === 'login' && (
-        <CraftMasterLogin onSignUpClick={() => setCurrentScreen('register')} />
+        <CraftMasterLogin
+          onSignUpClick={() => setCurrentScreen('register')}
+          onLoginSuccess={handleLoginSuccess}
+        />
       )}
 
       {currentScreen === 'register' && (
-        <CraftMasterRegister onLoginClick={() => setCurrentScreen('login')} />
+        <CraftMasterRegister
+          onLoginClick={() => setCurrentScreen('login')}
+          onRegisterSuccess={handleLoginSuccess}
+        />
       )}
     </div>
   )
